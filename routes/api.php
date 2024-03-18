@@ -5,15 +5,16 @@ use App\Http\Controllers\ConvertWeightController;
 use App\Http\Controllers\ConvertTemperatureController;
 use App\Http\Controllers\ConvertVolumeController;
 use App\Http\Controllers\ConvertSpeedController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and assigned to the "api" 
-| middleware group. Enjoy building your API!
+| Aquí es donde puedes registrar las rutas API para tu aplicación. Estas
+| rutas son cargadas por el RouteServiceProvider y asignadas al grupo
+| de middleware "api". ¡Disfruta construyendo tu API!
 |
 */
 

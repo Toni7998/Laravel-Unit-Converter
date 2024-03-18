@@ -10,16 +10,11 @@ class ConvertSpeedController extends Controller
     {
         switch ($unit) {
             case 'kilometers_per_hour_to_miles_per_hour':
-                $result = $value * 0.621371; // 1 kilometer per hour = 0.621371 miles per hour
-                break;
+                return response()->json(['result' => $value * 0.621371]); // 1 kilometer per hour = 0.621371 miles per hour
             case 'miles_per_hour_to_kilometers_per_hour':
-                $result = $value / 0.621371;
-                break;
+                return response()->json(['result' => $value / 0.621371]);
             default:
-                $result = 'Invalid unit provided';
-                break;
+                return response()->json(['error' => 'Invalid unit provided'], 400);
         }
-
-        return response()->json(['result' => $result]);
     }
 }

@@ -10,16 +10,11 @@ class ConvertTemperatureController extends Controller
     {
         switch ($unit) {
             case 'celsius_to_fahrenheit':
-                $result = ($value * 9 / 5) + 32;
-                break;
+                return response()->json(['result' => ($value * 9 / 5) + 32]);
             case 'fahrenheit_to_celsius':
-                $result = ($value - 32) * 5 / 9;
-                break;
+                return response()->json(['result' => ($value - 32) * 5 / 9]);
             default:
-                $result = 'Invalid unit provided';
-                break;
+                return response()->json(['error' => 'Invalid unit provided'], 400);
         }
-
-        return response()->json(['result' => $result]);
     }
 }

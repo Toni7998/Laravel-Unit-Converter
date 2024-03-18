@@ -10,16 +10,11 @@ class ConvertVolumeController extends Controller
     {
         switch ($unit) {
             case 'liters_to_gallons':
-                $result = $value * 0.264172; // 1 liter = 0.264172 gallons
-                break;
+                return response()->json(['result' => $value * 0.264172]); // 1 liter = 0.264172 gallons
             case 'gallons_to_liters':
-                $result = $value / 0.264172;
-                break;
+                return response()->json(['result' => $value / 0.264172]);
             default:
-                $result = 'Invalid unit provided';
-                break;
+                return response()->json(['error' => 'Invalid unit provided'], 400);
         }
-
-        return response()->json(['result' => $result]);
     }
 }

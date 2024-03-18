@@ -10,16 +10,11 @@ class ConvertWeightController extends Controller
     {
         switch ($unit) {
             case 'kilograms_to_pounds':
-                $result = $value * 2.20462; // 1 kilogram = 2.20462 pounds
-                break;
+                return response()->json(['result' => $value * 2.20462]); // 1 kilogram = 2.20462 pounds
             case 'pounds_to_kilograms':
-                $result = $value / 2.20462;
-                break;
+                return response()->json(['result' => $value / 2.20462]);
             default:
-                $result = 'Invalid unit provided';
-                break;
+                return response()->json(['error' => 'Invalid unit provided'], 400);
         }
-
-        return response()->json(['result' => $result]);
     }
 }

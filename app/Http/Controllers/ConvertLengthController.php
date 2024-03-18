@@ -10,17 +10,11 @@ class ConvertLengthController extends Controller
     {
         switch ($unit) {
             case 'meters_to_feet':
-                $result = $value * 3.28084; // 1 metro = 3.28084 pies
-                break;
+                return response()->json(['result' => $value * 3.28084]); // 1 metro = 3.28084 pies
             case 'feet_to_meters':
-                $result = $value / 3.28084;
-                break;
+                return response()->json(['result' => $value / 3.28084]);
             default:
-                $result = 'Invalid unit provided';
-                break;
+                return response()->json(['error' => 'Invalid unit provided'], 400);
         }
-
-        return response()->json(['result' => $result]);
     }
 }
-
