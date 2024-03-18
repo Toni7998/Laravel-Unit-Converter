@@ -15,13 +15,15 @@ use App\Http\Controllers\ConvertSpeedController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider and assigned to the "api" 
+| middleware group. Enjoy building your API!
 |
 */
 
-Route::get('/convert/length/{value}/{unit}', [ConvertLengthController::class, 'convert']);
-Route::get('/convert/weight/{value}/{unit}', [ConvertWeightController::class, 'convert']);
-Route::get('/convert/temperature/{value}/{unit}', [ConvertTemperatureController::class, 'convert']);
-Route::get('/convert/volume/{value}/{unit}', [ConvertVolumeController::class, 'convert']);
-Route::get('/convert/speed/{value}/{unit}', [ConvertSpeedController::class, 'convert']);
+Route::prefix('convert')->group(function () {
+    Route::get('/length/{value}/{unit}', [ConvertLengthController::class, 'convert']);
+    Route::get('/weight/{value}/{unit}', [ConvertWeightController::class, 'convert']);
+    Route::get('/temperature/{value}/{unit}', [ConvertTemperatureController::class, 'convert']);
+    Route::get('/volume/{value}/{unit}', [ConvertVolumeController::class, 'convert']);
+    Route::get('/speed/{value}/{unit}', [ConvertSpeedController::class, 'convert']);
+});
